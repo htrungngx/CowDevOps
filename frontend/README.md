@@ -1,17 +1,17 @@
-# devops-project-application-cowsay-api
-- Backend API for https://github.com/devopsway/devops-project-application-cowsay-frontend
+# Overview
+
+- Application frontend for Cowsay
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-npm install
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
-
-## Available API
-
-- `/cow` : Get the cowsay message
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
