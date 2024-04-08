@@ -1,13 +1,16 @@
-FROM node:16-slim
+FROM node:16-slim as builder
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json ./
 
 RUN npm install 
 
 COPY . .
 
-EXPOSE  3001
 
+FROM node:alpine
+WORKDIR /app
+COPY --from=builder /app .
+EXPOSE  3001
 CMD ["npm", "run", "dev"]
