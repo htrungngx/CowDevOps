@@ -14,7 +14,7 @@ export default function Home() {
       </pre>
     );
   };
-  let api_url = NEXT_PUBLIC_API_URL;
+  let api_url = process.env.NEXT_PUBLIC_API_URL;
   async function handleClick() {
     fetch(`${api_url}/cow`)
       .then((res) => res.json())
