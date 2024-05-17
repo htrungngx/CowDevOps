@@ -1,5 +1,6 @@
 FROM node:16-slim as builder
 WORKDIR /app
+ENV PORT=3001
 COPY package.json ./
 RUN npm install 
 COPY . .
@@ -8,5 +9,4 @@ COPY . .
 FROM node:alpine
 WORKDIR /app
 COPY --from=builder /app .
-EXPOSE  3001
 CMD ["npm", "run", "dev"]
