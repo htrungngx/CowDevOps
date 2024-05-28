@@ -23,4 +23,4 @@ jobs:
             fi
         run: |
           echo "$KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${HOSTNAME}@{IP} "${DEPLOY_SCRIPT}"
+          ssh -i private_key ${HOSTNAME}@{IP} "${DEPLOY_SCRIPT}"
