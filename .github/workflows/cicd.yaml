@@ -16,11 +16,12 @@ jobs:
           IP: ${{ secrets.HOST }}
         run: |
           echo "$KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${HOSTNAME}@{IP}
-
-          if [ $? -eq 0 ]; then
-            echo "SSH connection successful!"
-          else
-            echo "SSH connection failed!"
-            exit 1
-          fi
+          ssh -o StrictHostKeyChecking=no -i private_key ${HOSTNAME}@{IP}'
+  
+            if [ $? -eq 0 ]; then
+              echo "SSH connection successful!"
+            else
+              echo "SSH connection failed!"
+              exit 1
+            fi
+            '
