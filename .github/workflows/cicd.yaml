@@ -11,7 +11,7 @@ jobs:
 
       - name: Test SSH Connection
         env:
-          KEY: ${{ secrets.VM_KEY }}
+          DEPLOY_SSH_KEY: ${{ secrets.VM_KEY }}
           HOSTNAME: ${{ secrets.HOST_NAME }}
           IP: ${{ secrets.HOST }}
           DEPLOY_SCRIPT: |
@@ -22,5 +22,5 @@ jobs:
               exit 1
             fi
         run: |
-          echo "$KEY" > private_key && chmod 600 private_key
+          echo "$DEPLOY_SSH_KEY" > private_key && chmod 600 private_key
           ssh -i private_key ${HOSTNAME}@{IP} "${DEPLOY_SCRIPT}"
