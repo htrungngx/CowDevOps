@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Test SSH Connection
-      - env:
+        env:
           KEY: ${{ secrets.VM_KEY }}
           HOSTNAME: ${{ secrets.HOST_NAME }}
           IP: ${{ secrets.HOST }}
