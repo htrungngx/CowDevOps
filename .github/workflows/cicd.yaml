@@ -6,21 +6,15 @@ on:
       - main
 jobs:
   deploy:
-    env:
-      DEPLOY_SSH_KEY: ${{ secrets.VM_KEY }}
-      HOSTNAME: ${{ secrets.HOST_NAME }}
-      IP: ${{ secrets.HOST }}
-      DEPLOY_SCRIPT: |
-        if [ $? -eq 0 ]; then
-          echo "SSH connection successful!"
-        else
-          echo "SSH connection failed!"
-          exit 1
-        fi
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - name: Test SSH Connection
-        run: |
-          echo "$DEPLOY_SSH_KEY" > private_key && chmod 600 private_key
-          ssh -i private_key ${HOSTNAME}@{IP} "${DEPLOY_SCRIPT}"
+        uses: appleboy/ssh-action@v1.0.3
+        with: 
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.HOST_NAME }}
+          key: ${{ secrets.VM_KEY }}
+          port: 22
+        script: |
+          whoami
+          ls -al
