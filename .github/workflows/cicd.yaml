@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Initial SSH Connection
-        uses: fifsky/ssh-action@master
+        uses: tiyee/action-ssh@release
         with: 
           host: ${{ secrets.HOST }}
-          user: ${{ secrets.HOST_NAME }}
-          key: ${{ secrets.VM_KEY }}
+          username: ${{ secrets.HOST_NAME }}
+          privatekey: ${{ secrets.VM_KEY }}
           port: ${{ secrets.PORT }}
           command: |
             whoami
