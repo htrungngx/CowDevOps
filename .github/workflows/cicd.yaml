@@ -9,13 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Initial SSH Connection
-        uses: appleboy/ssh-action@master
+        uses: ifsky/ssh-action@master
         with: 
           host: ${{ secrets.HOST }}
-          username: ${{ secrets.HOST_NAME }}
+          user: ${{ secrets.HOST_NAME }}
           key: ${{ secrets.VM_KEY }}
           port: ${{ secrets.PORT }}
-          script: |
+          command: |
             whoami
             ls -al
             
