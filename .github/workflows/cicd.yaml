@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Test SSH Connection
+      - name: Initial SSH Connection
         uses: appleboy/ssh-action@v1.0.3
         with: 
           host: ${{ secrets.HOST }}
@@ -18,3 +18,4 @@ jobs:
           script: |
             whoami
             ls -al
+            
