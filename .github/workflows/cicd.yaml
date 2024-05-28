@@ -7,16 +7,17 @@ jobs:
   test-ssh:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Use SSH Agent
-        uses: webfactory/ssh-agent@v0.5.0
-        with:
-          ssh-private-key: ${{ secrets.VM_KEY }}
+      - uses: actions/checkout@v4
 
       - name: Test SSH Connection
+      - env:
+          KEY: ${{ secrets.VM_KEY }}
+          HOSTNAME: ${{ secrets.HOST_NAME }}
+          IP: ${{ secrets.HOST }}
         run: |
-          ssh ${{ secrets.HOST_NAME }}@${{ secrets.HOST }}
+          echo "$KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${HOSTNAME}@{IP}
+
           if [ $? -eq 0 ]; then
             echo "SSH connection successful!"
           else
