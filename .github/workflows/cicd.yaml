@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Initial SSH Connection
-        uses: tiyee/action-ssh@v1.0.1
+        uses: nekiro/ssh-job@v1.0.5
         with: 
           host: ${{ secrets.HOST }}
-          username: ${{ secrets.HOST_NAME }}
-          privatekey: ${{ secrets.VM_KEY }}
+          user: ${{ secrets.HOST_NAME }}
+          key: ${{ secrets.VM_KEY }}
           port: ${{ secrets.PORT }}
           command: |
             whoami
