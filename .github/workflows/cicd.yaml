@@ -12,9 +12,7 @@ jobs:
       - name: Use SSH Agent
         uses: webfactory/ssh-agent@v0.5.0
         with:
-          host: ${{ secrets.HOST }}  
-          username: ${{ secrets.HOST_NAME }} 
-          key: ${{ secrets.VM_KEY }}
+          ssh-private-key: ${{ secrets.VM_KEY }}
 
       - name: Test SSH Connection
         run: |
