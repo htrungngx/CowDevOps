@@ -12,7 +12,7 @@ jobs:
         uses: nekiro/ssh-job@v1.0.5
         with: 
           host: ${{ secrets.HOST }}
-          user: htrung_jobs
+          user: ${{ secrets.HOSTNAME }}
           key: ${{ secrets.VM_KEY }}
           port: ${{ secrets.PORT }}
           command: |
