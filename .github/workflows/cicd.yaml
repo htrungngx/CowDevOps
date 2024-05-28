@@ -2,25 +2,25 @@ name: Test SSH to EC2
 
 on:
   push:
-
+    branches:
+      - main
 jobs:
-  test-ssh:
+  deploy:
+    env:
+      DEPLOY_SSH_KEY: ${{ secrets.VM_KEY }}
+      HOSTNAME: ${{ secrets.HOST_NAME }}
+      IP: ${{ secrets.HOST }}
+      DEPLOY_SCRIPT: |
+        if [ $? -eq 0 ]; then
+          echo "SSH connection successful!"
+        else
+          echo "SSH connection failed!"
+          exit 1
+        fi
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Test SSH Connection
-        env:
-          DEPLOY_SSH_KEY: ${{ secrets.VM_KEY }}
-          HOSTNAME: ${{ secrets.HOST_NAME }}
-          IP: ${{ secrets.HOST }}
-          DEPLOY_SCRIPT: |
-            if [ $? -eq 0 ]; then
-              echo "SSH connection successful!"
-            else
-              echo "SSH connection failed!"
-              exit 1
-            fi
         run: |
           echo "$DEPLOY_SSH_KEY" > private_key && chmod 600 private_key
           ssh -i private_key ${HOSTNAME}@{IP} "${DEPLOY_SCRIPT}"
