@@ -5,7 +5,7 @@ on:
     branches:
       - main
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Test SSH Connection
@@ -15,6 +15,6 @@ jobs:
           username: ${{ secrets.HOST_NAME }}
           key: ${{ secrets.VM_KEY }}
           port: 22
-        script: |
-          whoami
-          ls -al
+          script: |
+            whoami
+            ls -al
