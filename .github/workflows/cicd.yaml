@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Initial SSH Connection
-        uses: tiyee/action-ssh@release
+        uses: tiyee/action-ssh@v1.0.1
         with: 
           host: ${{ secrets.HOST }}
           username: ${{ secrets.HOST_NAME }}
