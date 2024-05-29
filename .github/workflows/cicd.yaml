@@ -1,4 +1,4 @@
-name: Test SSH to EC2
+name: Full cicd 
 
 on:
   push:
@@ -10,12 +10,27 @@ jobs:
     steps:
       - name: Initial SSH Connection
         uses: nekiro/ssh-job@v1.0.5
+        env: 
+
         with: 
           host: ${{ secrets.HOST }}
           user: ${{ secrets.HOSTNAME }}
           key: ${{ secrets.VM_KEY }}
           port: ${{ secrets.PORT }}
-          command: |
-            whoami
-            ls -al
-            
+          script: |
+            ROJECT_DIR='CowDevOps'
+            PROJECT_REPO='https://github.com/htrungngx/CowDevOps.git'
+            if [ ! -d "$PROJECT_DIR" ]; then
+                echo "$PROJECT_DIR directory not found. Cloning repository..."
+                git clone $PROJECT_REPO
+                cd $PROJECT_DIR
+            else
+                echo "$PROJECT_DIR directory found. Pulling latest changes..."
+                cd $PROJECT_DIR
+                git pull
+            fi
+            chmod +x deploy.sh
+            sudo ./deploy.sh
+
+
+        
