@@ -11,7 +11,6 @@ deploy_backend() {
     echo "Deploying backend..."
     cd $BACKEND_PATH
     echo "Installing dependencies..."
-    rm -rf node_modules package-lock.json
     npm install
     echo "Starting backend with PM2..."
     pm2 start npm --name "backend" -- run dev
@@ -22,7 +21,6 @@ deploy_frontend() {
     echo "Deploying frontend..."
     cd $FRONTEND_PATH
     echo "Installing dependencies..."
-    rm -rf node_modules package-lock.json
     npm install
     echo "Building frontend..."
     npm run build
