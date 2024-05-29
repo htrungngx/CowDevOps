@@ -27,6 +27,7 @@ jobs:
                 cd $PROJECT_DIR
                 git pull
             fi
+            whoami
             git stash
             chmod +x deploy.sh
             ./deploy.sh
