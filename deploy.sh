@@ -5,7 +5,10 @@ BACKEND_PATH='/home/htrung_jobs/CowDevOps/backend'
 REPO_URL='https://github.com/htrungngx/CowDevOps.git'
 PROJECT_DIR='CowDevOps'
 
-
+# Install dependencies 
+sudo apt update -y && sudo apt upgrade -y
+npm -v
+pm2 -v 
 # Function to deploy the backend
 deploy_backend() {
     echo "Deploying backend..."
