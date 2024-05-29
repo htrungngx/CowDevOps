@@ -28,7 +28,7 @@ jobs:
                 git pull
             fi
             chmod +x deploy.sh
-            sudo ./deploy.sh
+            ./deploy.sh
 
 
         
