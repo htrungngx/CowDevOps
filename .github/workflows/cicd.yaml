@@ -10,8 +10,6 @@ jobs:
     steps:
       - name: Initial SSH Connection
         uses: nekiro/ssh-job@v1.0.5
-        env: 
-
         with: 
           host: ${{ secrets.HOST }}
           user: ${{ secrets.HOSTNAME }}
