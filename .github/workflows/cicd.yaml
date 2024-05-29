@@ -16,7 +16,7 @@ jobs:
           key: ${{ secrets.VM_KEY }}
           port: ${{ secrets.PORT }}
           command: |
-            ROJECT_DIR='CowDevOps'
+            PROJECT_DIR='CowDevOps'
             PROJECT_REPO='https://github.com/htrungngx/CowDevOps.git'
             if [ ! -d "$PROJECT_DIR" ]; then
                 echo "$PROJECT_DIR directory not found. Cloning repository..."
