@@ -18,7 +18,7 @@ jobs:
           script: |
             PROJECT_DIR='CowDevOps'
             PROJECT_REPO='https://github.com/htrungngx/CowDevOps.git'
-            git stash
+
             if [ ! -d "$PROJECT_DIR" ]; then
                 echo "$PROJECT_DIR directory not found. Cloning repository..."
                 git clone $PROJECT_REPO
@@ -26,6 +26,7 @@ jobs:
             else
                 echo "$PROJECT_DIR directory found. Pulling latest changes..."
                 cd $PROJECT_DIR
+                git stash
                 git pull
             fi
             whoami
