@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Initial SSH Connection
-        uses: appleboy/ssh-action@v1.0.2
+        uses: appleboy/ssh-action@v1.0.3
         with: 
           host: ${{ secrets.HOST }}
           username: ${{ secrets.HOSTNAME }}
