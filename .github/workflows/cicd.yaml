@@ -15,7 +15,6 @@ jobs:
           username: ${{ secrets.HOSTNAME }}
           key: ${{ secrets.VM_KEY }}
           port: ${{ secrets.PORT }}
-          script_stop: true
           script: |
             PROJECT_DIR='CowDevOps'
             PROJECT_REPO='https://github.com/htrungngx/CowDevOps.git'
