@@ -9,13 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Initial SSH Connection
-        uses: nekiro/ssh-job@v1.0.5
+        uses: appleboy/ssh-action@v1.0.2
         with: 
           host: ${{ secrets.HOST }}
-          user: ${{ secrets.HOSTNAME }}
+          username: ${{ secrets.HOSTNAME }}
           key: ${{ secrets.VM_KEY }}
           port: ${{ secrets.PORT }}
-          command: |
+          script_stop: true
+          script: |
             PROJECT_DIR='CowDevOps'
             PROJECT_REPO='https://github.com/htrungngx/CowDevOps.git'
             if [ ! -d "$PROJECT_DIR" ]; then
