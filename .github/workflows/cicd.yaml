@@ -18,6 +18,7 @@ jobs:
           script: |
             PROJECT_DIR='CowDevOps'
             PROJECT_REPO='https://github.com/htrungngx/CowDevOps.git'
+            git stash
             if [ ! -d "$PROJECT_DIR" ]; then
                 echo "$PROJECT_DIR directory not found. Cloning repository..."
                 git clone $PROJECT_REPO
@@ -28,7 +29,7 @@ jobs:
                 git pull
             fi
             whoami
-            git stash
+            
             chmod +x deploy.sh
             ./deploy.sh
 
