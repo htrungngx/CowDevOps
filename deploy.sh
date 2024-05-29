@@ -44,10 +44,6 @@ deploy_frontend() {
 echo "Killing all running PM2 processes..."
 pm2 kill
 
-# Deploy backend
-deploy_backend
-
-# Deploy frontend
-deploy_frontend
+pm2 start ecosystem.config.js
 
 echo "Deployment complete."
