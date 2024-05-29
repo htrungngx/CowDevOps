@@ -15,7 +15,7 @@ jobs:
           user: ${{ secrets.HOSTNAME }}
           key: ${{ secrets.VM_KEY }}
           port: ${{ secrets.PORT }}
-          script: |
+          command: |
             ROJECT_DIR='CowDevOps'
             PROJECT_REPO='https://github.com/htrungngx/CowDevOps.git'
             if [ ! -d "$PROJECT_DIR" ]; then
