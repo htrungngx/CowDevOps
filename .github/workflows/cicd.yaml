@@ -14,7 +14,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.HOSTNAME }}
           key: ${{ secrets.VM_KEY }}
-          port: ${{ secrets.PORT }}
           script: |
             PROJECT_DIR='CowDevOps'
             PROJECT_REPO='https://github.com/htrungngx/CowDevOps.git'
