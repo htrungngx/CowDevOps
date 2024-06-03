@@ -28,6 +28,11 @@ app.use((req, res, next) => {
 
 app.use("/cow", cowRouter);
 
+app.listen(3001, () => {
+  console.log("Running on port 3001.");
+});
+
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   res.json({ error: "No such url" });
